@@ -1,7 +1,7 @@
 from MysqlInterface import Get_Table_Column,Upload_Raw_Data,Get_Raw_Data,Update_Raw_Data
 
 username="nocan"
-password="yw2321597"
+password="xxxx"
 database="TEST"
 checkID=3
 entityTable="Driver"
