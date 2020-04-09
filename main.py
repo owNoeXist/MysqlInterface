@@ -34,7 +34,7 @@ def ShowTable():
 
 def Upload():
     #entitytable
-    autoIncrementID=Upload_Raw_Data(username,password,database,checkID,entityTable,data,1)
+    autoIncrementID=Upload_Raw_Data(username,password,database,entityTable,data,1)
     print("autoIncrementID:{0}".format(autoIncrementID))
     #checktable
     checkdata=[]

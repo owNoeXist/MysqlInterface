@@ -1,7 +1,7 @@
 import pymysql
 import json
 
-def Upload_Raw_Data(Username,Password,Database,CheckID,TableName,Data,AutoFlag=0):
+def Upload_Raw_Data(Username,Password,Database,TableName,Data,AutoFlag=0):
     #connect database
     conn = pymysql.connect(
         host="127.1.1.1",
@@ -63,7 +63,7 @@ def Get_Raw_Data(Username,Password,Database,CheckID,TableName,ColumnNeed,CheckTa
     conn.close()
     return data
 
-def Update_Raw_Data(Username,Password,Database,CheckID,TableName,Data,ColunmKey):
+def Update_Raw_Data(Username,Password,Database,CheckID,TableName,Data,KeyColunm):
     #connect database
     conn = pymysql.connect(
         host="127.1.1.1",
@@ -74,10 +74,10 @@ def Update_Raw_Data(Username,Password,Database,CheckID,TableName,Data,ColunmKey)
     cursor = conn.cursor()
     #get column that need update
     columnUpdate= ', '.join('{0}=%({0})s'.format(k) for k in Data[0].keys())
-    columnKey = ' and '.join('{0}=%({0})s'.format(k) for k in ColunmKey)
+    keyColumn = ' and '.join('{0}=%({0})s'.format(k) for k in KeyColunm)
     #update data of table
     sql="update {0} set {1} where {2}"\
-        .format(TableName,columnUpdate,columnKey)
+        .format(TableName,columnUpdate,keyColumn)
     print("\nmysql>"+sql)
     cursor.executemany(sql,Data)
     conn.commit()
