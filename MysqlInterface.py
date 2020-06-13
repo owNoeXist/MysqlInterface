@@ -1,10 +1,10 @@
 import pymysql
 import json
 
-def Upload_Raw_Data(Username,Password,Database,TableName,Data,AutoFlag=0):
+def Upload_Raw_Data(Host,Username,Password,Database,TableName,Data,AutoFlag=0):
     #connect database
     conn = pymysql.connect(
-        host="127.1.1.1",
+        host=Host,
         user=Username,
         password=Password,
         database=Database,
@@ -32,10 +32,10 @@ def Upload_Raw_Data(Username,Password,Database,TableName,Data,AutoFlag=0):
     conn.close()
     return autoIncrementID
 
-def Get_Raw_Data(Username,Password,Database,CheckID,TableName,ColumnNeed,CheckTable=None,KeyColunm=None):
+def Get_Raw_Data(Host,Username,Password,Database,CheckID,TableName,ColumnNeed,CheckTable=None,KeyColunm=None):
     #connect database
     conn = pymysql.connect(
-        host="127.1.1.1",
+        host=Host,
         user=Username,
         password=Password,
         database=Database,
@@ -63,10 +63,10 @@ def Get_Raw_Data(Username,Password,Database,CheckID,TableName,ColumnNeed,CheckTa
     conn.close()
     return data
 
-def Update_Raw_Data(Username,Password,Database,CheckID,TableName,Data,KeyColunm):
+def Update_Raw_Data(Host,Username,Password,Database,CheckID,TableName,Data,KeyColunm):
     #connect database
     conn = pymysql.connect(
-        host="127.1.1.1",
+        host=Host,
         user=Username,
         password=Password,
         database=Database,
@@ -85,10 +85,10 @@ def Update_Raw_Data(Username,Password,Database,CheckID,TableName,Data,KeyColunm)
     cursor.close()
     conn.close()
 
-def Get_Table_Column(Username,Password,Database,TableName,Flag=0):
+def Get_Table_Column(Host,Username,Password,Database,TableName,Flag=0):
     #connect database
     conn = pymysql.connect(
-        host="127.1.1.1",
+        host=Host,
         user=Username,
         password=Password,
         database=Database,
