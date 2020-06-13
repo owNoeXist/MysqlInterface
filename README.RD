@@ -3,7 +3,8 @@
 
 提供了四个数据库接口函数，并提供了一个调用示例
 ---------------------------------------------------------------------------------
-Get_Table_Column(Username,Password,Database,TableName,Flag=0)
+Get_Table_Column(Host,Username,Password,Database,TableName,Flag=0)
+Host:数据库IP
 Username：数据库用户名
 Password：数据库用户密码
 Database：使用的数据库
@@ -13,7 +14,8 @@ Flag：标记，默认为0，取值应为0或1
 调用后会返回指定表的所有列信息，并以列表形式返回
 当Flag为0时，只会返回列名信息；当Flag为1时，会返回列名、数据类型、是否自增、主键等信息
 ---------------------------------------------------------------------------------
-Upload_Raw_Data(Username,Password,Database,TableName,Data,AutoFlag=0)
+Upload_Raw_Data(Host，Username,Password,Database,TableName,Data,AutoFlag=0)
+Host：数据库IP
 Username：数据库用户名
 Password：数据库用户密码
 Database：使用的数据库
@@ -24,7 +26,8 @@ AutoFlag：标记，默认为0，取值应为0或1
 调用后返回的值与AutoFlag有关，返回类型为列表，调用成功数据会上传到数据库
 当AutoFlag值为0时，返回一个空列表；当AutoFlag值为1时，返回插入数据后自增列新增的值
 ---------------------------------------------------------------------------------
-Get_Raw_Data(Username,Password,Database,CheckID,TableName,ColumnNeed,CheckTable=None,KeyColunm=None)
+Get_Raw_Data(Host,Username,Password,Database,CheckID,TableName,ColumnNeed,CheckTable=None,KeyColunm=None)
+Host:数据库IP
 Username：数据库用户名
 Password：数据库用户密码
 Database：使用的数据库
@@ -37,7 +40,8 @@ KeyColunm：目标表的主键列表
 调用后返回与checkID相关的数据，返回类型为字典列表
 当CheckTable值为None时，表示不需要进行多表查询；当CheckTable值不为None时，需要提供主键列表KeyColunm
 ---------------------------------------------------------------------------------
-Update_Raw_Data(Username,Password,Database,CheckID,TableName,Data,KeyColunm)
+Update_Raw_Data(Host,Username,Password,Database,CheckID,TableName,Data,KeyColunm)
+Host:数据库IP
 Username：数据库用户名
 Password：数据库用户密码
 Database：使用的数据库
